@@ -1,0 +1,19 @@
+# Python dependencies for Cricket Bowling Statistics RDF Project
+
+# Core RDF library
+rdflib>=6.0.0
+
+# Web server for linked data publishing
+Flask>=2.0.0
+
+# SPARQL queries to external endpoints
+SPARQLWrapper>=2.0.0
+
+# Optional: Better JSON handling
+jsonld>=0.1.0
+
+# Optional: RDF validation
+pyshacl>=0.20.0
+
+# Optional: Better CLI output
+colorama>=0.4.0

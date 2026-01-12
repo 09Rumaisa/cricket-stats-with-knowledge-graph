@@ -1,0 +1,325 @@
+@prefix cricket: <http://example.org/cricket/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/cricket/ontology> a owl:Ontology ;
+    rdfs:label "Cricket Bowling Statistics Ontology" ;
+    rdfs:comment "A comprehensive ontology for cricket bowling statistics with advanced OWL features" ;
+    owl:versionInfo "2.0" .
+
+cricket:ActivePlayer a owl:Class ;
+    rdfs:label "Active Player" ;
+    owl:unionOf ( cricket:Bowler cricket:AllRounder cricket:WicketKeeper ) .
+
+cricket:AveragePerformance a owl:Class ;
+    rdfs:label "Average Performance" ;
+    rdfs:comment "Standard performance" ;
+    rdfs:subClassOf cricket:BowlingStatistics .
+
+cricket:Award a owl:Class ;
+    rdfs:label "Award" ;
+    rdfs:comment "An award or recognition" .
+
+cricket:EliteBowler a owl:Class ;
+    rdfs:label "Elite Bowler" ;
+    owl:intersectionOf ( cricket:Bowler cricket:ExcellentPerformance ) .
+
+cricket:FastBowler a owl:Class ;
+    rdfs:label "Fast Bowler" ;
+    rdfs:comment "A bowler who bowls at high speed" ;
+    rdfs:subClassOf cricket:Bowler ;
+    owl:disjointWith cricket:SpinBowler .
+
+cricket:GoodPerformance a owl:Class ;
+    rdfs:label "Good Performance" ;
+    rdfs:comment "Above average performance",
+        "Performance with 20+ wickets" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty cricket:wickets ;
+            owl:someValuesFrom xsd:float ],
+        cricket:BowlingStatistics ;
+    owl:disjointWith cricket:PoorPerformance .
+
+cricket:Innings a owl:Class ;
+    rdfs:label "Innings" ;
+    rdfs:comment "An innings in a match" .
+
+cricket:NonBowler a owl:Class ;
+    rdfs:label "Non-Bowler" ;
+    owl:complementOf cricket:Bowler .
+
+cricket:Over a owl:Class ;
+    rdfs:label "Over" ;
+    rdfs:comment "A set of 6 deliveries" .
+
+cricket:Season a owl:Class ;
+    rdfs:label "Season" ;
+    rdfs:comment "A cricket season" .
+
+cricket:Umpire a owl:Class ;
+    rdfs:label "Umpire" ;
+    rdfs:comment "A match umpire" ;
+    rdfs:subClassOf schema1:Person .
+
+cricket:achievedBy a owl:ObjectProperty ;
+    rdfs:label "achieved by" ;
+    rdfs:domain cricket:Achievement ;
+    rdfs:range cricket:Player .
+
+cricket:average a owl:DatatypeProperty ;
+    rdfs:label "average" ;
+    rdfs:comment "Bowling average" ;
+    rdfs:domain cricket:BowlingStatistics ;
+    rdfs:range xsd:float .
+
+cricket:bestBowlingInnings a owl:DatatypeProperty ;
+    rdfs:label "bestBowlingInnings" ;
+    rdfs:comment "Best bowling figures" ;
+    rdfs:domain cricket:BowlingStatistics ;
+    rdfs:range xsd:string .
+
+cricket:birthDate a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "birth date" ;
+    rdfs:domain cricket:Player ;
+    rdfs:range xsd:date .
+
+cricket:catches a owl:DatatypeProperty ;
+    rdfs:label "catches" ;
+    rdfs:comment "Number of catches taken" ;
+    rdfs:domain cricket:BowlingStatistics ;
+    rdfs:range xsd:integer .
+
+cricket:coaches a owl:ObjectProperty ;
+    rdfs:label "coaches" ;
+    rdfs:domain cricket:Coach ;
+    rdfs:range cricket:Team .
+
+cricket:economy a owl:DatatypeProperty ;
+    rdfs:label "economy" ;
+    rdfs:comment "Economy rate" ;
+    rdfs:domain cricket:BowlingStatistics ;
+    rdfs:range xsd:float .
+
+cricket:fiveWickets a owl:DatatypeProperty ;
+    rdfs:label "fiveWickets" ;
+    rdfs:comment "Number of 5-wicket hauls" ;
+    rdfs:domain cricket:BowlingStatistics ;
+    rdfs:range xsd:float .
+
+cricket:forTeam a owl:ObjectProperty ;
+    rdfs:label "for team" ;
+    rdfs:domain cricket:BowlingStatistics ;
+    rdfs:range cricket:Team .
+
+cricket:fourWickets a owl:DatatypeProperty ;
+    rdfs:label "fourWickets" ;
+    rdfs:comment "Number of 4-wicket hauls" ;
+    rdfs:domain cricket:BowlingStatistics ;
+    rdfs:range xsd:float .
+
+cricket:heldAt a owl:ObjectProperty ;
+    rdfs:label "held at" ;
+    rdfs:domain cricket:Match ;
+    rdfs:range cricket:Venue .
+
+cricket:innings a owl:DatatypeProperty ;
+    rdfs:label "innings" ;
+    rdfs:comment "Number of innings bowled" ;
+    rdfs:domain cricket:BowlingStatistics ;
+    rdfs:range xsd:float .
+
+cricket:jerseyNumber a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "jersey number" ;
+    rdfs:domain cricket:Player ;
+    rdfs:range xsd:integer .
+
+cricket:maidens a owl:DatatypeProperty ;
+    rdfs:label "maidens" ;
+    rdfs:comment "Number of maiden overs" ;
+    rdfs:domain cricket:BowlingStatistics ;
+    rdfs:range xsd:float .
+
+cricket:matches a owl:DatatypeProperty ;
+    rdfs:label "matches" ;
+    rdfs:comment "Number of matches played" ;
+    rdfs:domain cricket:BowlingStatistics ;
+    rdfs:range xsd:integer .
+
+cricket:overs a owl:DatatypeProperty ;
+    rdfs:label "overs" ;
+    rdfs:comment "Number of overs bowled" ;
+    rdfs:domain cricket:BowlingStatistics ;
+    rdfs:range xsd:float .
+
+cricket:partOf a owl:ObjectProperty ;
+    rdfs:label "part of" ;
+    rdfs:domain cricket:Match ;
+    rdfs:range cricket:Tournament .
+
+cricket:playedIn a owl:ObjectProperty ;
+    rdfs:label "played in" ;
+    rdfs:domain cricket:Player ;
+    rdfs:range cricket:Match .
+
+cricket:playerID a owl:DatatypeProperty,
+        owl:InverseFunctionalProperty ;
+    rdfs:label "player ID" ;
+    rdfs:domain cricket:Player ;
+    rdfs:range xsd:string .
+
+cricket:represents a owl:ObjectProperty ;
+    rdfs:label "represents" ;
+    rdfs:domain cricket:Team ;
+    rdfs:range cricket:Country .
+
+cricket:runsConceded a owl:DatatypeProperty ;
+    rdfs:label "runsConceded" ;
+    rdfs:comment "Total runs conceded" ;
+    rdfs:domain cricket:BowlingStatistics ;
+    rdfs:range xsd:float .
+
+cricket:span a owl:DatatypeProperty ;
+    rdfs:label "span" ;
+    rdfs:comment "Time period of statistics" ;
+    rdfs:domain cricket:BowlingStatistics ;
+    rdfs:range xsd:string .
+
+cricket:strikeRate a owl:DatatypeProperty ;
+    rdfs:label "strikeRate" ;
+    rdfs:comment "Strike rate" ;
+    rdfs:domain cricket:BowlingStatistics ;
+    rdfs:range xsd:float .
+
+cricket:stumpings a owl:DatatypeProperty ;
+    rdfs:label "stumpings" ;
+    rdfs:comment "Number of stumpings" ;
+    rdfs:domain cricket:BowlingStatistics ;
+    rdfs:range xsd:integer .
+
+cricket:teamID a owl:DatatypeProperty,
+        owl:InverseFunctionalProperty ;
+    rdfs:label "team ID" ;
+    rdfs:domain cricket:Team ;
+    rdfs:range xsd:string .
+
+cricket:Achievement a owl:Class ;
+    rdfs:label "Achievement" ;
+    rdfs:comment "A notable bowling achievement" .
+
+cricket:AllRounder a owl:Class ;
+    rdfs:label "All-Rounder" ;
+    rdfs:comment "A player who both bats and bowls" ;
+    rdfs:subClassOf cricket:Player .
+
+cricket:Coach a owl:Class ;
+    rdfs:label "Coach" ;
+    rdfs:comment "A team coach" ;
+    rdfs:subClassOf schema1:Person .
+
+cricket:Country a owl:Class ;
+    rdfs:label "Country" ;
+    rdfs:comment "A country" .
+
+cricket:DomesticTeam a cricket:TeamType .
+
+cricket:ExcellentPerformance a owl:Class ;
+    rdfs:label "Excellent Performance" ;
+    rdfs:comment "Outstanding bowling performance",
+        "Performance with 50+ wickets and economy < 7.5" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty cricket:wickets ;
+            owl:someValuesFrom xsd:float ],
+        cricket:BowlingStatistics ;
+    owl:disjointWith cricket:PoorPerformance .
+
+cricket:InternationalTeam a cricket:TeamType .
+
+cricket:PSLTeam a cricket:TeamType .
+
+cricket:SpinBowler a owl:Class ;
+    rdfs:label "Spin Bowler" ;
+    rdfs:comment "A bowler who uses spin techniques" ;
+    rdfs:subClassOf cricket:Bowler .
+
+cricket:Tournament a owl:Class ;
+    rdfs:label "Tournament" ;
+    rdfs:comment "A cricket tournament" .
+
+cricket:Venue a owl:Class ;
+    rdfs:label "Venue" ;
+    rdfs:comment "A cricket ground or stadium" .
+
+cricket:WicketKeeper a owl:Class ;
+    rdfs:label "Wicket Keeper" ;
+    rdfs:comment "A player who keeps wickets" ;
+    rdfs:subClassOf cricket:Player .
+
+cricket:forPlayer a owl:ObjectProperty ;
+    rdfs:label "for player" ;
+    rdfs:domain cricket:BowlingStatistics ;
+    rdfs:range cricket:Player .
+
+cricket:PoorPerformance a owl:Class ;
+    rdfs:label "Poor Performance" ;
+    rdfs:comment "Below average performance" ;
+    rdfs:subClassOf cricket:BowlingStatistics .
+
+cricket:hasPlayer a owl:ObjectProperty ;
+    rdfs:label "has player" ;
+    rdfs:domain cricket:Team ;
+    rdfs:range cricket:Player ;
+    owl:inverseOf cricket:playsFor .
+
+cricket:playsFor a owl:ObjectProperty ;
+    rdfs:label "plays for" ;
+    rdfs:domain cricket:Player ;
+    rdfs:range cricket:Team ;
+    owl:inverseOf cricket:hasPlayer .
+
+cricket:wickets a owl:DatatypeProperty ;
+    rdfs:label "wickets" ;
+    rdfs:comment "Total wickets taken" ;
+    rdfs:domain cricket:BowlingStatistics ;
+    rdfs:range xsd:float .
+
+cricket:Match a owl:Class ;
+    rdfs:label "Match" ;
+    rdfs:comment "A cricket match" .
+
+cricket:TeamType a owl:Class ;
+    rdfs:label "Team Type" ;
+    owl:oneOf ( cricket:PSLTeam cricket:InternationalTeam cricket:DomesticTeam ) .
+
+cricket:Bowler a owl:Class ;
+    rdfs:label "Bowler" ;
+    rdfs:comment "A player who specializes in bowling" ;
+    rdfs:subClassOf cricket:Player .
+
+cricket:Team a owl:Class ;
+    rdfs:label "Cricket Team" ;
+    rdfs:comment "A cricket team organization" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality "11"^^xsd:nonNegativeInteger ;
+            owl:onProperty cricket:hasPlayer ],
+        schema1:SportsTeam .
+
+cricket:Player a owl:Class ;
+    rdfs:label "Cricket Player" ;
+    rdfs:comment "A person who plays cricket" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty cricket:playsFor ],
+        schema1:Person .
+
+cricket:BowlingStatistics a owl:Class ;
+    rdfs:label "Bowling Statistics" ;
+    rdfs:comment "Statistical data about bowling performance" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty cricket:forPlayer ] .
+

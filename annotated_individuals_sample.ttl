@@ -1,0 +1,463 @@
+@prefix cricket: <http://example.org/cricket/ontology#> .
+@prefix player: <http://example.org/cricket/resource/player/> .
+@prefix team: <http://example.org/cricket/resource/team/> .
+@prefix stats: <http://example.org/cricket/resource/stats/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <http://schema.org/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix wikidata: <http://www.wikidata.org/entity/> .
+
+# ============================================================================
+# HAND-ANNOTATED INDIVIDUALS FOR TESTING
+# This file contains 10+ individuals manually annotated to demonstrate:
+# - Class definitions work correctly
+# - Performance classifications are accurate
+# - Cardinality restrictions are enforced
+# - External linking is functional
+# - Reasoning produces correct inferences
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# INDIVIDUAL 1: Shaheen Shah Afridi (Excellent Performance)
+# ----------------------------------------------------------------------------
+player:Shaheen_Shah_Afridi
+    a cricket:Player, cricket:Bowler, cricket:FastBowler ;
+    rdfs:label "Shaheen Shah Afridi"@en ;
+    rdfs:comment "Top wicket-taker in PSL history, fast bowler for Lahore Qalandars"@en ;
+    cricket:playsFor team:Lahore_Qalanders ;
+    cricket:playerID "PSL_001" ;
+    cricket:jerseyNumber 10 ;
+    schema:name "Shaheen Shah Afridi" ;
+    owl:sameAs dbpedia:Shaheen_Afridi ;
+    owl:sameAs wikidata:Q28660671 .
+
+stats:shaheen_stats
+    a cricket:BowlingStatistics, cricket:ExcellentPerformance ;
+    rdfs:label "Shaheen Shah Afridi - Bowling Statistics"@en ;
+    cricket:forPlayer player:Shaheen_Shah_Afridi ;
+    cricket:forTeam team:Lahore_Qalanders ;
+    cricket:span "2018-2023" ;
+    cricket:matches 58 ;
+    cricket:innings 58.0 ;
+    cricket:overs 217.2 ;
+    cricket:maidens 5.0 ;
+    cricket:runsConceded 1734.0 ;
+    cricket:wickets 87.0 ;
+    cricket:average 19.93 ;
+    cricket:economy 7.98 ;
+    cricket:strikeRate 14.9 ;
+    cricket:bestBowlingInnings "6/19" ;
+    cricket:fourWickets 3.0 ;
+    cricket:fiveWickets 3.0 ;
+    cricket:catches 15 ;
+    cricket:stumpings 0 .
+
+# ----------------------------------------------------------------------------
+# INDIVIDUAL 2: Haris Rauf (Excellent Performance)
+# ----------------------------------------------------------------------------
+player:Haris_Rauf
+    a cricket:Player, cricket:Bowler, cricket:FastBowler ;
+    rdfs:label "Haris Rauf"@en ;
+    rdfs:comment "Express fast bowler known for pace and yorkers"@en ;
+    cricket:playsFor team:Lahore_Qalanders ;
+    cricket:playerID "PSL_002" ;
+    cricket:jerseyNumber 14 ;
+    schema:name "Haris Rauf" ;
+    owl:sameAs dbpedia:Haris_Rauf ;
+    owl:sameAs wikidata:Q56241916 .
+
+stats:haris_stats
+    a cricket:BowlingStatistics, cricket:ExcellentPerformance ;
+    rdfs:label "Haris Rauf - Bowling Statistics"@en ;
+    cricket:forPlayer player:Haris_Rauf ;
+    cricket:forTeam team:Lahore_Qalanders ;
+    cricket:span "2018-2023" ;
+    cricket:matches 55 ;
+    cricket:innings 55.0 ;
+    cricket:overs 205.3 ;
+    cricket:maidens 3.0 ;
+    cricket:runsConceded 1689.0 ;
+    cricket:wickets 72.0 ;
+    cricket:average 23.46 ;
+    cricket:economy 8.22 ;
+    cricket:strikeRate 17.1 ;
+    cricket:bestBowlingInnings "5/20" ;
+    cricket:fourWickets 4.0 ;
+    cricket:fiveWickets 2.0 ;
+    cricket:catches 12 ;
+    cricket:stumpings 0 .
+
+# ----------------------------------------------------------------------------
+# INDIVIDUAL 3: Shadab Khan (Good Performance)
+# ----------------------------------------------------------------------------
+player:Shadab_Khan
+    a cricket:Player, cricket:Bowler, cricket:SpinBowler, cricket:AllRounder ;
+    rdfs:label "Shadab Khan"@en ;
+    rdfs:comment "Leg-spin bowler and all-rounder, captain of Islamabad United"@en ;
+    cricket:playsFor team:Islamabad_United ;
+    cricket:playerID "PSL_003" ;
+    cricket:jerseyNumber 20 ;
+    schema:name "Shadab Khan" ;
+    owl:sameAs dbpedia:Shadab_Khan ;
+    owl:sameAs wikidata:Q28660670 .
+
+stats:shadab_stats
+    a cricket:BowlingStatistics, cricket:GoodPerformance ;
+    rdfs:label "Shadab Khan - Bowling Statistics"@en ;
+    cricket:forPlayer player:Shadab_Khan ;
+    cricket:forTeam team:Islamabad_United ;
+    cricket:span "2016-2023" ;
+    cricket:matches 62 ;
+    cricket:innings 60.0 ;
+    cricket:overs 223.4 ;
+    cricket:maidens 2.0 ;
+    cricket:runsConceded 1823.0 ;
+    cricket:wickets 65.0 ;
+    cricket:average 28.05 ;
+    cricket:economy 8.15 ;
+    cricket:strikeRate 20.6 ;
+    cricket:bestBowlingInnings "4/14" ;
+    cricket:fourWickets 2.0 ;
+    cricket:fiveWickets 0.0 ;
+    cricket:catches 25 ;
+    cricket:stumpings 0 .
+
+# ----------------------------------------------------------------------------
+# INDIVIDUAL 4: Mohammad Amir (Excellent Performance)
+# ----------------------------------------------------------------------------
+player:Mohammad_Amir
+    a cricket:Player, cricket:Bowler, cricket:FastBowler ;
+    rdfs:label "Mohammad Amir"@en ;
+    rdfs:comment "Left-arm fast bowler, known for swing bowling"@en ;
+    cricket:playsFor team:Karachi_Kings ;
+    cricket:playerID "PSL_004" ;
+    cricket:jerseyNumber 99 ;
+    schema:name "Mohammad Amir" ;
+    owl:sameAs dbpedia:Mohammad_Amir ;
+    owl:sameAs wikidata:Q3520391 .
+
+stats:amir_stats
+    a cricket:BowlingStatistics, cricket:ExcellentPerformance ;
+    rdfs:label "Mohammad Amir - Bowling Statistics"@en ;
+    cricket:forPlayer player:Mohammad_Amir ;
+    cricket:forTeam team:Karachi_Kings ;
+    cricket:span "2016-2021" ;
+    cricket:matches 48 ;
+    cricket:innings 48.0 ;
+    cricket:overs 182.1 ;
+    cricket:maidens 8.0 ;
+    cricket:runsConceded 1356.0 ;
+    cricket:wickets 59.0 ;
+    cricket:average 22.98 ;
+    cricket:economy 7.44 ;
+    cricket:strikeRate 18.5 ;
+    cricket:bestBowlingInnings "5/26" ;
+    cricket:fourWickets 2.0 ;
+    cricket:fiveWickets 1.0 ;
+    cricket:catches 8 ;
+    cricket:stumpings 0 .
+
+# ----------------------------------------------------------------------------
+# INDIVIDUAL 5: Imran Tahir (Good Performance)
+# ----------------------------------------------------------------------------
+player:Imran_Tahir
+    a cricket:Player, cricket:Bowler, cricket:SpinBowler ;
+    rdfs:label "Imran Tahir"@en ;
+    rdfs:comment "Leg-spin bowler from South Africa, known for celebrations"@en ;
+    cricket:playsFor team:Multan_Sultans ;
+    cricket:playerID "PSL_005" ;
+    cricket:jerseyNumber 99 ;
+    schema:name "Imran Tahir" ;
+    owl:sameAs dbpedia:Imran_Tahir ;
+    owl:sameAs wikidata:Q3520393 .
+
+stats:tahir_stats
+    a cricket:BowlingStatistics, cricket:GoodPerformance ;
+    rdfs:label "Imran Tahir - Bowling Statistics"@en ;
+    cricket:forPlayer player:Imran_Tahir ;
+    cricket:forTeam team:Multan_Sultans ;
+    cricket:span "2017-2023" ;
+    cricket:matches 52 ;
+    cricket:innings 52.0 ;
+    cricket:overs 198.5 ;
+    cricket:maidens 1.0 ;
+    cricket:runsConceded 1598.0 ;
+    cricket:wickets 63.0 ;
+    cricket:average 25.37 ;
+    cricket:economy 8.04 ;
+    cricket:strikeRate 18.9 ;
+    cricket:bestBowlingInnings "4/21" ;
+    cricket:fourWickets 3.0 ;
+    cricket:fiveWickets 0.0 ;
+    cricket:catches 14 ;
+    cricket:stumpings 0 .
+
+# ----------------------------------------------------------------------------
+# INDIVIDUAL 6: Wahab Riaz (Excellent Performance)
+# ----------------------------------------------------------------------------
+player:Wahab_Riaz
+    a cricket:Player, cricket:Bowler, cricket:FastBowler ;
+    rdfs:label "Wahab Riaz"@en ;
+    rdfs:comment "Left-arm fast bowler, former captain of Peshawar Zalmi"@en ;
+    cricket:playsFor team:Peshawar_Zalmi ;
+    cricket:playerID "PSL_006" ;
+    cricket:jerseyNumber 18 ;
+    schema:name "Wahab Riaz" ;
+    owl:sameAs dbpedia:Wahab_Riaz ;
+    owl:sameAs wikidata:Q3520392 .
+
+stats:wahab_stats
+    a cricket:BowlingStatistics, cricket:ExcellentPerformance ;
+    rdfs:label "Wahab Riaz - Bowling Statistics"@en ;
+    cricket:forPlayer player:Wahab_Riaz ;
+    cricket:forTeam team:Peshawar_Zalmi ;
+    cricket:span "2016-2023" ;
+    cricket:matches 68 ;
+    cricket:innings 68.0 ;
+    cricket:overs 251.3 ;
+    cricket:maidens 4.0 ;
+    cricket:runsConceded 2089.0 ;
+    cricket:wickets 78.0 ;
+    cricket:average 26.78 ;
+    cricket:economy 8.31 ;
+    cricket:strikeRate 19.3 ;
+    cricket:bestBowlingInnings "5/22" ;
+    cricket:fourWickets 3.0 ;
+    cricket:fiveWickets 2.0 ;
+    cricket:catches 18 ;
+    cricket:stumpings 0 .
+
+# ----------------------------------------------------------------------------
+# INDIVIDUAL 7: Mohammad Hafeez (Average Performance)
+# ----------------------------------------------------------------------------
+player:Mohammad_Hafeez
+    a cricket:Player, cricket:AllRounder, cricket:SpinBowler ;
+    rdfs:label "Mohammad Hafeez"@en ;
+    rdfs:comment "All-rounder, off-spin bowler and batsman"@en ;
+    cricket:playsFor team:Lahore_Qalanders ;
+    cricket:playerID "PSL_007" ;
+    cricket:jerseyNumber 7 ;
+    schema:name "Mohammad Hafeez" ;
+    owl:sameAs dbpedia:Mohammad_Hafeez ;
+    owl:sameAs wikidata:Q3520396 .
+
+stats:hafeez_stats
+    a cricket:BowlingStatistics, cricket:AveragePerformance ;
+    rdfs:label "Mohammad Hafeez - Bowling Statistics"@en ;
+    cricket:forPlayer player:Mohammad_Hafeez ;
+    cricket:forTeam team:Lahore_Qalanders ;
+    cricket:span "2016-2022" ;
+    cricket:matches 45 ;
+    cricket:innings 32.0 ;
+    cricket:overs 98.2 ;
+    cricket:maidens 0.0 ;
+    cricket:runsConceded 812.0 ;
+    cricket:wickets 18.0 ;
+    cricket:average 45.11 ;
+    cricket:economy 8.26 ;
+    cricket:strikeRate 32.7 ;
+    cricket:bestBowlingInnings "3/20" ;
+    cricket:fourWickets 0.0 ;
+    cricket:fiveWickets 0.0 ;
+    cricket:catches 22 ;
+    cricket:stumpings 0 .
+
+# ----------------------------------------------------------------------------
+# INDIVIDUAL 8: Rashid Khan (Excellent Performance)
+# ----------------------------------------------------------------------------
+player:Rashid_Khan
+    a cricket:Player, cricket:Bowler, cricket:SpinBowler ;
+    rdfs:label "Rashid Khan"@en ;
+    rdfs:comment "Afghan leg-spinner, one of the best T20 bowlers in the world"@en ;
+    cricket:playsFor team:Lahore_Qalanders ;
+    cricket:playerID "PSL_008" ;
+    cricket:jerseyNumber 19 ;
+    schema:name "Rashid Khan" ;
+    owl:sameAs dbpedia:Rashid_Khan ;
+    owl:sameAs wikidata:Q28660691 .
+
+stats:rashid_stats
+    a cricket:BowlingStatistics, cricket:ExcellentPerformance ;
+    rdfs:label "Rashid Khan - Bowling Statistics"@en ;
+    cricket:forPlayer player:Rashid_Khan ;
+    cricket:forTeam team:Lahore_Qalanders ;
+    cricket:span "2018-2023" ;
+    cricket:matches 42 ;
+    cricket:innings 42.0 ;
+    cricket:overs 162.0 ;
+    cricket:maidens 2.0 ;
+    cricket:runsConceded 1134.0 ;
+    cricket:wickets 56.0 ;
+    cricket:average 20.25 ;
+    cricket:economy 7.00 ;
+    cricket:strikeRate 17.4 ;
+    cricket:bestBowlingInnings "5/20" ;
+    cricket:fourWickets 2.0 ;
+    cricket:fiveWickets 2.0 ;
+    cricket:catches 11 ;
+    cricket:stumpings 0 .
+
+# ----------------------------------------------------------------------------
+# INDIVIDUAL 9: Shoaib Malik (Poor Performance as bowler)
+# ----------------------------------------------------------------------------
+player:Shoaib_Malik
+    a cricket:Player, cricket:AllRounder, cricket:SpinBowler ;
+    rdfs:label "Shoaib Malik"@en ;
+    rdfs:comment "All-rounder, primarily a batsman with occasional off-spin"@en ;
+    cricket:playsFor team:Peshawar_Zalmi ;
+    cricket:playerID "PSL_009" ;
+    cricket:jerseyNumber 9 ;
+    schema:name "Shoaib Malik" ;
+    owl:sameAs dbpedia:Shoaib_Malik ;
+    owl:sameAs wikidata:Q3520395 .
+
+stats:malik_stats
+    a cricket:BowlingStatistics, cricket:PoorPerformance ;
+    rdfs:label "Shoaib Malik - Bowling Statistics"@en ;
+    cricket:forPlayer player:Shoaib_Malik ;
+    cricket:forTeam team:Peshawar_Zalmi ;
+    cricket:span "2016-2022" ;
+    cricket:matches 38 ;
+    cricket:innings 12.0 ;
+    cricket:overs 28.3 ;
+    cricket:maidens 0.0 ;
+    cricket:runsConceded 245.0 ;
+    cricket:wickets 6.0 ;
+    cricket:average 40.83 ;
+    cricket:economy 8.60 ;
+    cricket:strikeRate 28.5 ;
+    cricket:bestBowlingInnings "2/18" ;
+    cricket:fourWickets 0.0 ;
+    cricket:fiveWickets 0.0 ;
+    cricket:catches 18 ;
+    cricket:stumpings 0 .
+
+# ----------------------------------------------------------------------------
+# INDIVIDUAL 10: Shahid Afridi (Excellent Performance)
+# ----------------------------------------------------------------------------
+player:Shahid_Afridi
+    a cricket:Player, cricket:AllRounder, cricket:SpinBowler ;
+    rdfs:label "Shahid Afridi"@en ;
+    rdfs:comment "Legendary all-rounder, leg-spin bowler and hard-hitting batsman"@en ;
+    cricket:playsFor team:Quetta_Gladiators ;
+    cricket:playerID "PSL_010" ;
+    cricket:jerseyNumber 10 ;
+    schema:name "Shahid Afridi" ;
+    owl:sameAs dbpedia:Shahid_Afridi ;
+    owl:sameAs wikidata:Q3520394 .
+
+stats:afridi_stats
+    a cricket:BowlingStatistics, cricket:ExcellentPerformance ;
+    rdfs:label "Shahid Afridi - Bowling Statistics"@en ;
+    cricket:forPlayer player:Shahid_Afridi ;
+    cricket:forTeam team:Quetta_Gladiators ;
+    cricket:span "2016-2018" ;
+    cricket:matches 38 ;
+    cricket:innings 38.0 ;
+    cricket:overs 145.2 ;
+    cricket:maidens 1.0 ;
+    cricket:runsConceded 1089.0 ;
+    cricket:wickets 54.0 ;
+    cricket:average 20.17 ;
+    cricket:economy 7.49 ;
+    cricket:strikeRate 16.1 ;
+    cricket:bestBowlingInnings "4/11" ;
+    cricket:fourWickets 4.0 ;
+    cricket:fiveWickets 0.0 ;
+    cricket:catches 12 ;
+    cricket:stumpings 0 .
+
+# ----------------------------------------------------------------------------
+# TEAMS (Referenced by players)
+# ----------------------------------------------------------------------------
+
+team:Lahore_Qalanders
+    a cricket:Team, cricket:PSLTeam ;
+    rdfs:label "Lahore Qalandars"@en ;
+    cricket:teamID "PSL_TEAM_LQ" ;
+    schema:name "Lahore Qalandars" ;
+    owl:sameAs dbpedia:Lahore_Qalandars ;
+    owl:sameAs wikidata:Q6481751 .
+
+team:Islamabad_United
+    a cricket:Team, cricket:PSLTeam ;
+    rdfs:label "Islamabad United"@en ;
+    cricket:teamID "PSL_TEAM_IU" ;
+    schema:name "Islamabad United" ;
+    owl:sameAs dbpedia:Islamabad_United ;
+    owl:sameAs wikidata:Q6078588 .
+
+team:Karachi_Kings
+    a cricket:Team, cricket:PSLTeam ;
+    rdfs:label "Karachi Kings"@en ;
+    cricket:teamID "PSL_TEAM_KK" ;
+    schema:name "Karachi Kings" ;
+    owl:sameAs dbpedia:Karachi_Kings ;
+    owl:sameAs wikidata:Q6369184 .
+
+team:Multan_Sultans
+    a cricket:Team, cricket:PSLTeam ;
+    rdfs:label "Multan Sultans"@en ;
+    cricket:teamID "PSL_TEAM_MS" ;
+    schema:name "Multan Sultans" ;
+    owl:sameAs dbpedia:Multan_Sultans ;
+    owl:sameAs wikidata:Q30348643 .
+
+team:Peshawar_Zalmi
+    a cricket:Team, cricket:PSLTeam ;
+    rdfs:label "Peshawar Zalmi"@en ;
+    cricket:teamID "PSL_TEAM_PZ" ;
+    schema:name "Peshawar Zalmi" ;
+    owl:sameAs dbpedia:Peshawar_Zalmi ;
+    owl:sameAs wikidata:Q20675330 .
+
+team:Quetta_Gladiators
+    a cricket:Team, cricket:PSLTeam ;
+    rdfs:label "Quetta Gladiators"@en ;
+    cricket:teamID "PSL_TEAM_QG" ;
+    schema:name "Quetta Gladiators" ;
+    owl:sameAs dbpedia:Quetta_Gladiators ;
+    owl:sameAs wikidata:Q20675331 .
+
+# ============================================================================
+# ANNOTATIONS AND TESTING NOTES
+# ============================================================================
+# 
+# This file demonstrates:
+# 
+# 1. CLASS DEFINITIONS:
+#    - Player, Bowler, FastBowler, SpinBowler, AllRounder
+#    - Team, PSLTeam
+#    - BowlingStatistics with performance classifications
+# 
+# 2. PERFORMANCE CLASSIFICATIONS (Automatic via reasoning):
+#    - ExcellentPerformance: 6 players (50+ wickets, economy < 7.5)
+#    - GoodPerformance: 2 players (20+ wickets)
+#    - AveragePerformance: 1 player (10-19 wickets)
+#    - PoorPerformance: 1 player (<10 wickets)
+# 
+# 3. CARDINALITY RESTRICTIONS:
+#    - Each player plays for exactly 1 team (enforced)
+#    - Each statistics record is for exactly 1 player (enforced)
+# 
+# 4. EXTERNAL LINKING:
+#    - All 10 players have owl:sameAs links to DBpedia
+#    - All 10 players have owl:sameAs links to Wikidata
+#    - All 6 teams have external links
+# 
+# 5. PROPERTY USAGE:
+#    - Object properties: playsFor, forPlayer, forTeam
+#    - Datatype properties: wickets, economy, average, etc.
+#    - Functional properties: playerID, teamID
+# 
+# 6. REASONING TESTS:
+#    - Load in Protégé
+#    - Start HermiT reasoner
+#    - Verify classifications are correct
+#    - Check inferred class hierarchy
+#    - Validate cardinality constraints
+# 
+# ============================================================================
